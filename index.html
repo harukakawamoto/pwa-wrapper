@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>PWA Wrapper</title>
+    <!-- PWA認識のためのマニフェストファイルを読み込み -->
+    <link rel="manifest" href="./manifest.json" />
+
+    <!-- 必要に応じてiOS向けアイコンやテーマカラーなどを設定 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <!-- テーマカラー (Androidなどでステータスバーの色指定) -->
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- viewport設定 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Service Worker登録用スクリプト -->
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("./pwa-wrapper.js")
+          .then(() => {
+            console.log("Service Worker registered successfully.");
+          })
+          .catch((err) => {
+            console.warn("Service Worker registration failed:", err);
+          });
+      }
+    </script>
+  </head>
+  <body style="margin: 0; padding: 0">
+    <!-- ブラウザUIを消した状態で、既存Webアプリをiframe内に表示 -->
+    <iframe src="https://member.tt.tanaka.jp/login"> </iframe>
+  </body>
+</html>

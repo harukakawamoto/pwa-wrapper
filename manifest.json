@@ -1,0 +1,6 @@
+{
+  "name": "PWA Wrapper",
+  "short_name": "PWAWrap",
+  "start_url": "/index.html",
+  "display": "fullscreen"
+}
